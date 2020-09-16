@@ -12,9 +12,12 @@ int main() {
     while (q--) {
         int n;
         cin >> n;
+        //初始化
         for (int i = 0; i < n; i++) {
+            visit[i]=false;//初始化忘写了，加上就a了
             cin >> arr[i];
         }
+        //贪心
         for (int i = n - 1; i > 0; i--) {
             if (arr[i] < arr[i - 1]) {
                 visit[i - 1] = true;
@@ -26,6 +29,7 @@ int main() {
                 swap(arr[i], arr[i + 1]);
             }
         }
+        //输出
         for (int i = 0; i < n; i++) {
             cout << arr[i] << " ";
         }
