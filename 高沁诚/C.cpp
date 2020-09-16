@@ -6,27 +6,27 @@ int main() {
     const int maxn = 100010;
     int n, m, ai, bi;
     scanf("%d %d", &n, &m);
-    int total = 0;
-    int totcomp = 0;
-    int diff[maxn];
+    int total = 0;  //压缩前总大小
+    int totcomp = 0;    //压缩后总大小
+    int diff[maxn]; //压缩前后的差值
     for (int i=0; i<n; i++) {
         scanf("%d %d", &ai, &bi);
         total += ai;
         totcomp += bi;
         diff[i] = ai - bi;
     }
-    if (total <= m) {
+    if (total <= m) {   //如果压缩前的大小就小于m时，直接输出
         printf("0");
         return 0;
     }
-    if (totcomp > m) {
+    if (totcomp > m) {  //如果压缩后的大小还是大于m时，直接输出
         printf("-1");
         return 0;
     }
-    int need = total - m;
-    sort(diff, diff+n);
+    int need = total - m;   //距离全部放进磁盘还差多少空间
+    sort(diff, diff+n); //把差值从小到大排序
     int totdiff = 0, count = 0;
-    for (int i=n-1; i>=0; i--) {
+    for (int i=n-1; i>=0; i--) {    //把压缩前后的差值从大到小相加，到可以放进磁盘时停止，计算此时共压缩了多少文件
         totdiff += diff[i];
         count++;
         if (totdiff >= need) {
@@ -34,6 +34,7 @@ int main() {
         }
     }
     printf("%d", count);
+    // 下面这些本来是想用动态规划做的，结果还是超时
     // int arr[maxn][maxn];
     // for (int i=0; i<n; i++) {
     //     for (int j=1; j<=n; j++) {
