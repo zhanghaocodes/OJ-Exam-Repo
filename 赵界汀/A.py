@@ -1,4 +1,9 @@
 def main():
+    '''
+    1. total_l 记录所有case
+    2. 按照v的整数倍遍历 1 ～ l-1，r+1 ~ L
+    3. 在test3 时超时了
+    '''
     total_l = int(input())
     journey = list()
     for i in range(total_l):

@@ -1,4 +1,7 @@
 def main():
+    '''
+    Accepted
+    '''
     n,m = list(map(int,input().split()))
     songs = list()
     reduce = list()
