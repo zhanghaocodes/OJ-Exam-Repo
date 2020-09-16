@@ -3,7 +3,7 @@
 
 using namespace std;
 
-priority_queue<int> myQueue;
+priority_queue<int> myQueue;//优先队列
 
 int main()
 {
@@ -14,13 +14,13 @@ int main()
     {
         int a,b;
         cin>>a>>b;
-        myQueue.push(a-b);
+        myQueue.push(a-b);//把压缩的差值全部push到队列中
         sum+=a;
     }
     int num=0;
     while(sum>m&&(!myQueue.empty()))
     {
-        sum-=myQueue.top();
+        sum-=myQueue.top();//减少最大的压缩差值
         myQueue.pop();
         num++;
     }
