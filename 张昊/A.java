@@ -3,9 +3,20 @@ package Exam;
 import java.util.Scanner;
 
 public class A {
-	static int res;
-    static int tmp;
-	public static void f(int n, int src[], int numbers[]) {
+	static int res;  // 保存结果
+        static int tmp;  //暂存两个集合计算结果
+	
+	     /*本题主要思路将题目抽象为建一个大小为n的符号数组  里面初始全放1  
+		然后通过添加-1的个数进行全排列  
+		将得到的的符号数组分别与1,2,3.....n相乘再相加
+		取绝对值后与res的大小比较 最终得到结果
+		比如 输入2 
+		符号数组为 1 1
+		全排列的结果为 1 1；1 -1；-1 1；-1 -1
+		分别与1 1相乘相加取绝对值 得到3 1 1 3
+		最终输出1
+		 */
+	public static void f(int n, int src[], int numbers[]) {       //递归 全排列过程
 		tmp = 0;
 		if ( n == 1) {
 
